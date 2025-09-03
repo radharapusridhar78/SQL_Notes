@@ -165,6 +165,8 @@ select * from svs_college_1 where manager_id is null;
 select * from svs_college_1 where manager_id is not null;
 ------------------------------------------------------------------------
 
+ffggf hgh fghyftyfyu gyufty fyyufyt
+
 
 
 

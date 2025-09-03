@@ -1,0 +1,189 @@
+
+     Date: 2-09-2025:
+------------
+
+create table employee
+(
+sno number(10),
+name varchar(20),
+employeeid number(30),
+companyname varchar(40),
+email_id varchar(20),
+address varchar(45),
+salary number(20)
+);
+
+
+
+create table student2
+(
+sno number(5),
+name varchar(20),
+fathername varchar(20),
+branch varchar(5)
+);
+
+select * from student2;      --- to see table content
+
+---------------------------------------------------------------------------------------
+INSERT
+----------------------------------------------------------------------------------------
+Method -1 
+insert into student2 values(1,'santhosh','komuraiah','ece');
+
+insert into student2 values(2,'sridhar','bikshapathi','cse');
+
+insert into student2 values(3,'vihan','santhosh','it');
+
+insert into student2 values(4,'kiran','raghu','mech');
+---------------------------------------
+Method - 2
+insert into student2 values(&SNO,&NAME,&FATHERNAME,&BRANCH);
+-----------------------------------------------------
+Method - 3
+insert into student2 (sno, name) values(7,'Vijay');
+
+------------------------------------------------------------------------------------------
+UPDATE
+------------------------------------------------------------------------------------------
+
+select * from student2;
+
+update student2 set branch='ECE' ;    -- to update whole column
+update student2 set branch='ECE' where name='Vijay';  -- to update a specific row.
+-------------------------------------------------------------------------------------------
+DELETE
+
+select * from student2;
+
+delete from student2;    --to delete complete table
+delete from student2 where name='kiran';  ---- to delete specific row/rows
+----------------------------------------------------------------------------------------------
+
+2-09-2025
+
+1). Write a query to list the rows with department_id as 30
+select * from svs_college_1 where department_id ='30';
+
+
+2). Write a query to list the rows with job_id as 'IT PROG'
+select * from svs_college_1 where job_id ='IT_PROG';
+
+3). Write a query to update the salary as 77000 for the employees with job_id 'AD_VP'
+update svs_college_1 set salary='7700' where job_id='AD_VP';
+
+4). Write a query to delete employees with job_id 'ST MAN'
+delete from svs_college_1 where job_id='ST_MAN';
+
+
+
+
+---------------------
+DQL -- SELECT
+---------------------
+select * from svs_college_1;  ( all rows & all columns)
+select * from svs_college_1 where department_id ='30'; ( all columns  and specific rows)
+select first_name,last_name,department_id from svs_college_1 ; ( specific columns & all rows)
+select first_name,last_name,department_id from svs_college_1 where department_id ='100'; ( specific columns & Specific rows )
+
+----------
+creating a table using 'SELECT' and 'AS' keywords.
+
+create table Newtable as slect * from oldtable ;
+----------------------------------------------------------------
+OPERATORS using select:
+
+1:arithmetic operators:-
+
+select first_name,salary from svs_college_1;
+select first_name,salary,salary*12 "YearlySalary" from svs_college_1;
+
+select first_name,salary, salary+1000 as "SalarywithBonus" from svs_college_1;
+select first_name,salary, salary-2000 as "salarywithloss" from svs_college_1;
+select first_name,salary, salary/2 as "practicefordivision" from svs_college_1;
+-------------------------------------------------------------------
+
+2:relational operators:-
+
+
+select * from svs_college_1 where salary > 10000;
+select * from svs_college_1 where salary < 10000;
+select * from svs_college_1 where salary >= 10000;
+select * from svs_college_1 where salary <= 10000;
+select * from svs_college_1 where salary = 10000;
+select * from svs_college_1 where salary != 10000;
+
+--------------------------------------------------------------------------
+3:logical operators:-
+
+
+select * from svs_college_1 where salary > 10000 and department_id = 20;
+
+select * from svs_college_1 where salary > 20000 OR department_id = 20;
+
+select first_name,salary from svs_college_1 where salary > 20000 OR department_id = 20;
+----------------------------------------------------------------------------
+
+4:special operators:-
+
+IN AND NOT IN OPERATOR:-
+------------------------
+select * from svs_college_1 where department_id in (60,90);
+
+select * from svs_college_1 where department_id =60 or department_id= 90;
+
+select * from svs_college_1 where department_id not in (60,90);
+
+BETWEEN AND NOT BETWEEEN OPERATOR:-
+---------------------------------
+
+select * from svs_college_1 where salary between 10000 and 20000;
+select * from svs_college_1 where salary not between 10000 and 20000;
+
+LIKE AND NOT LIKE OPERATOR:-
+----------------------------
+1:- WAQ TO LIST THE EMPLOYEE WHOSE FIRST_NAME STARTS WITH 'K'.?
+select * from svs_college_1 where first_name like 'K%';
+select * from svs_college_1 where first_name not like 'K%';
+
+2:- WAQ TO LIST THE EMPLOYEE WHOSE FIRST_NAME ENDS WITH 'S'.? 
+select * from svs_college_1 where first_name like '%s';
+select * from svs_college_1 where first_name not like '%s';
+
+
+3:- WAQ TO LIST EMPLOYEE WHOSE EMAIL CONTAINS 'J'.?
+select * from svs_college_1 where email like '%J%';
+select * from svs_college_1 where email not like '%J%';
+
+IS NULL AND IS NOT NULL OPERATOR:-
+----------------------------------
+
+select * from svs_college_1 where manager_id='108';
+select * from svs_college_1 where commission_pct is null;
+select * from svs_college_1 where commission_pct is not null;
+select * from svs_college_1 where manager_id is null;
+select * from svs_college_1 where manager_id is not null;
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
